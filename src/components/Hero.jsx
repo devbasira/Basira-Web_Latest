@@ -70,8 +70,8 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                 >
                     <img
                         src={plus}
-                        width={40}
-                        height={40}
+                        width={45}
+                        height={45}
                         className="text-gray-500 mt-[20px] group-hover:text-yellow-500 transition-colors duration-300"
                     />
                 </motion.div>
