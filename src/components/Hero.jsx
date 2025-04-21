@@ -1,6 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import plus from '../assets/plus.svg'
+import { useState } from "react";
+
+
 export default function Hero({ isExpanded, setIsExpanded }) {
+    const [showEmail, setShowEmail] = useState(false);
 
     return (
         <motion.div
@@ -37,7 +41,7 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                 <AnimatePresence>
                     {isExpanded && (
                         <motion.div
-                        
+
                             key="expanded-content"
                             className="lg:w-[820px] flex flex-col items-start gap-[24px] text-left"
                         >
@@ -51,15 +55,30 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                                 Let’s build something meaningful. <br />
                                 Start fresh or reimagine what’s already there — we’re ready.
                             </p>
-                            <button className="underline text-[#0a0a23] font-semibold text-md lg:text-lg hover:opacity-80">
-                                Start a Conversation
-                            </button>
+                            {!showEmail ? (
+                                <button
+                                    className="underline text-[#0a0a23] font-semibold text-md lg:text-lg hover:opacity-80"
+                                    onClick={() => setShowEmail(true)}
+                                >
+                                    Start a Conversation
+                                </button>
+                            ) : (
+                                <a
+                                    href="mailto:hello@basira.studio?subject=Let’s Connect&body=Hi Basira Studio,"
+                                    className="underline text-[#0a0a23] font-semibold text-md lg:text-lg hover:opacity-80"
+                                >
+                                    contact@basirastudio.com
+                                </a>
+                            )}
                         </motion.div>
                     )}
                 </AnimatePresence>
 
                 <motion.div
-                    onClick={() => setIsExpanded((prev) => !prev)}
+                    onClick={() => {
+                        setIsExpanded((prev) => !prev)
+                        setShowEmail(false)
+                    }}
                     className="group cursor-pointer"
                     animate={{
                         rotate: isExpanded ? 45 : 0,
