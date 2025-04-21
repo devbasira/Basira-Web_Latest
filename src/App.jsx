@@ -13,7 +13,7 @@ export default function App() {
         <Hero isExpanded={isExpanded} setIsExpanded = {setIsExpanded} key="hero" />
       </AnimatePresence>
       {isExpanded && (
-        <div className="fixed bottom-[3%] left-[3%] z-50">
+        <div className="fixed bottom-[0%] bg-white w-screen p-[20px] z-50">
         <motion.img
           initial={{ opacity: 0, x: 0 }}
           animate={{ opacity: 0.6, x: 0 }}
