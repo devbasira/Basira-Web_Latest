@@ -24,7 +24,7 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                     }}
                     style={{
                         transformOrigin: "left top",
-                        marginTop: isExpanded ? "80px" : "10px",
+                       
                     }}
                 >
                     make things easy
