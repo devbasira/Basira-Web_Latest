@@ -64,7 +64,7 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                                 </button>
                             ) : (
                                 <a
-                                    href="mailto:hello@basira.studio?subject=Let’s Connect&body=Hi Basira Studio,"
+                                    href="mailto:contact@basirastudio.com?subject=Let’s Connect&body=Hi Basira Studio,"
                                     className="underline text-[#0a0a23] font-semibold text-md lg:text-lg hover:opacity-80"
                                 >
                                     contact@basirastudio.com
