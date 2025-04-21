@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { CirclePlus } from "lucide-react";
-
+import plus from '../assets/plus.svg'
 export default function Hero({ isExpanded, setIsExpanded }) {
 
     return (
@@ -38,6 +37,7 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                 <AnimatePresence>
                     {isExpanded && (
                         <motion.div
+                        
                             key="expanded-content"
                             className="lg:w-[820px] flex flex-col items-start gap-[24px] text-left"
                         >
@@ -63,11 +63,13 @@ export default function Hero({ isExpanded, setIsExpanded }) {
                     className="group cursor-pointer"
                     animate={{
                         rotate: isExpanded ? 45 : 0,
+                        scale: isExpanded ? 0.8 : 1,
                         y: isExpanded ? 20 : 0,
                         transition: { duration: 0.5 },
                     }}
                 >
-                    <CirclePlus
+                    <img
+                        src={plus}
                         width={40}
                         height={40}
                         className="text-gray-500 mt-[20px] group-hover:text-yellow-500 transition-colors duration-300"
