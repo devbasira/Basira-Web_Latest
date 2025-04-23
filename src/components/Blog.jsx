@@ -26,7 +26,7 @@ export default function Blog() {
 
     return (
         <motion.div
-            className="w-full min-h-screen flex items-center justify-center p-4 bg-white overflow-y-auto lg:pb-0 md:pb-[100px] pb-[100px]"
+            className="w-full min-h-screen flex items-center justify-center p-4 bg-white overflow-y-auto lg:pb-[50px] md:pb-[100px] pb-[100px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
