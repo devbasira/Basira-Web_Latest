@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Hero from "./components/Hero"
 import Blog from "./components/Blog"
 import logo from "./assets/Basira_Logo_Color.svg"
+import BlogDetail from "./components/BlogDetail";
 import { useNavigate } from "react-router-dom"
 
 function AnimatedRoutes() {
@@ -17,6 +18,7 @@ function AnimatedRoutes() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Hero isExpanded={isExpanded} setIsExpanded={setIsExpanded} />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blogs/:id" element={<BlogDetail />} />
         </Routes>
       </AnimatePresence>
 

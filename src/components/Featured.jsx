@@ -1,8 +1,9 @@
 import { motion } from "framer-motion"
-export default Featured = ({featured}) => {
+
+export default function Featured({featured, cardVariants, navigate}) {
 
     return (
-        <div className="w-full grid grid-cols-3 gap-[30px]">
+        <div className="w-full grid grid-cols-3 gap-[30px] cursor-pointer">
             <motion.div
                 key={featured.id}
                 className=" col-span-3 h-[540px] bg-gray-100 rounded-md relative overflow-hidden mb-10"
@@ -11,6 +12,7 @@ export default Featured = ({featured}) => {
                 viewport={{ once: true }}
                 variants={cardVariants}
                 transition={{ duration: 0.5 }}
+                onClick={() => navigate(`/blogs/${featured.id}`, { state: featured })}
             >
                 {featured.images?.[0] && (
                     <div className="absolute inset-0 z-0">
