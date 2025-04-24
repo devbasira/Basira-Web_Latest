@@ -29,7 +29,7 @@ const BlogDetail = () => {
   }
 
   return (
-    <div className="space-y-6 pt-[30px] pb-[50px] max-w-[1200px] lg:px-[20px] md:px-[10px] h-screen overflow-y-auto scrollbar-hide">
+    <div className="space-y-6 pt-[30px] pb-[50px] max-w-[1200px] lg:px-[20px] md:px-[10px] h-screen overflow-y-auto scrollbar-hide  pb-[90px]">
       <Card className="mx-auto w-full shadow-none border-none bg-white">
         <CardContent className="py-6">
           <div className="space-y-[30px]">
@@ -98,7 +98,7 @@ const BlogDetail = () => {
         <Button
           variant="default"
           onClick={() => navigate("/blog")}
-          className="w-full sm:w-auto hover:cursor-pointer"
+          className="w-[160px] hover:cursor-pointer"
         >
           Back to Blog Page
         </Button>

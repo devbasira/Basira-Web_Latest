@@ -23,7 +23,7 @@ function AnimatedRoutes() {
       </AnimatePresence>
 
       {(location.pathname !== "/" || isExpanded) && (
-        <div className="fixed bottom-[0%] bg-white lg:bg-transparent md:bg-white w-screen p-[20px] z-50">
+        <div className="fixed bottom-[0%] bg-white w-screen p-[20px] z-50">
           <motion.img
             initial={{ opacity: 0, x: 0 }}
             animate={{ opacity: 0.6, x: 0 }}

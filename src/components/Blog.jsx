@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Featured from "./Featured";
+import BlogTile from "./BlogTile";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -29,13 +30,13 @@ export default function Blog() {
 
   return (
     <motion.div
-      className="w-full min-h-screen max-h-screen overflow-x-hidden overflow-y-auto bg-white flex justify-center items-start p-4 pb-[60px]"
+      className="w-full min-h-screen max-h-screen overflow-x-hidden overflow-y-auto bg-white flex justify-center items-start py-4 lg:pb-[70px] md:pb-[70px] pb-[90px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="w-full max-w-[1200px] px-[30px] flex flex-col items-start">
+      <div className="w-full max-w-[1200px] lg:px-[30px] flex flex-col items-start">
         <h1 className="text-[44px] lg:text-[64px] font-bold text-[#0a0a23] mb-10 ml-[15px]">
           insights
         </h1>
@@ -49,8 +50,13 @@ export default function Blog() {
             <Featured featured={featured} cardVariants={cardVariants} navigate={navigate}/>
           )
         )}
-
+        <div>
+            <h1 className="lg:text-[40px] p-[20px] md:text-[28px] text-[24px] font-semibold">
+              All Posts 
+            </h1>
+          </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] w-full">
+          
           {isLoading
             ? Array(3)
                 .fill(0)
@@ -61,37 +67,7 @@ export default function Blog() {
                   />
                 ))
             : blogs.map((blog, i) => (
-                <motion.div
-                  key={blog.id}
-                  className="h-[380px] bg-gray-100 rounded-md overflow-hidden px-4 py-2 relative flex flex-col justify-end cursor-pointer"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={cardVariants}
-                  transition={{ duration: 0.5, delay: 0.2 * i }}
-                  onClick={() => navigate(`/blogs/${blog.id}`, { state: blog })}
-                >
-                  {blog.images?.[0] && (
-                    <img
-                      src={blog.images[0]}
-                      alt={blog.title}
-                      className="w-full h-full object-cover absolute top-0 left-0 opacity-20"
-                    />
-                  )}
-                  <div className="relative z-10 h-full flex flex-col justify-end p-4">
-                    <div>
-                      <h3 className="text-lg lg:text-xl font-semibold text-[#0a0a23]">
-                        {blog.title}
-                      </h3>
-                      <p className="text-sm lg:text-base text-gray-600 mt-1">
-                        {blog.subheading}
-                      </p>
-                    </div>
-                    <div className="absolute bottom-0 right-4 bg-white/70 backdrop-blur-sm px-3 py-1 text-xs text-gray-600 shadow-sm">
-                      {blog.author}
-                    </div>
-                  </div>
-                </motion.div>
+                <BlogTile blog={blog} navigate={navigate} cardVariants={cardVariants} i={i} />
               ))}
         </div>
       </div>

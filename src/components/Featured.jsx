@@ -3,10 +3,15 @@ import { motion } from "framer-motion"
 export default function Featured({featured, cardVariants, navigate}) {
 
     return (
-        <div className="w-full grid grid-cols-3 gap-[30px] cursor-pointer">
+        <div className="w-full grid grid-cols-3 gap-[10px] cursor-pointer">
+            <div className="col-span-3">
+            <h1 className="lg:text-[48px] md:text-[36px] text-[28px] font-semibold">
+                Featured Post
+            </h1>
+            </div>
             <motion.div
                 key={featured.id}
-                className=" col-span-3 h-[540px] bg-gray-100 rounded-md relative overflow-hidden mb-10"
+                className="col-span-3 h-[540px] bg-gray-100 relative overflow-hidden mb-10"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
