@@ -5,6 +5,17 @@ import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Featured from "./Featured";
 import BlogTile from "./BlogTile";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -71,6 +82,22 @@ export default function Blog() {
               ))}
         </div>
       </div>
+      <Drawer>
+  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerFooter>
+      <Button>Submit</Button>
+      <DrawerClose>
+        <Button variant="outline">Cancel</Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+
     </motion.div>
   );
 }
