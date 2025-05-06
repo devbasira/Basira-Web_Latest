@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 import "../index.css";
 import Featured from "./Featured";
 import BlogTile from "./BlogTile";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
-import { Button } from "@/components/ui/button";
+// import {
+//   Drawer,
+//   DrawerClose,
+//   DrawerContent,
+//   DrawerDescription,
+//   DrawerFooter,
+//   DrawerHeader,
+//   DrawerTitle,
+//   DrawerTrigger,
+// } from "@/components/ui/drawer"
+// import { Button } from "@/components/ui/button";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },
@@ -58,45 +58,45 @@ export default function Blog() {
           </div>
         ) : (
           featured && (
-            <Featured featured={featured} cardVariants={cardVariants} navigate={navigate}/>
+            <Featured featured={featured} cardVariants={cardVariants} navigate={navigate} />
           )
         )}
         <div>
-            <h1 className="lg:text-[40px] p-[20px] md:text-[28px] text-[24px] font-semibold">
-              All Posts 
-            </h1>
-          </div>
+          <h1 className="lg:text-[40px] p-[20px] md:text-[28px] text-[24px] font-semibold">
+            All Posts
+          </h1>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] w-full">
-          
+
           {isLoading
             ? Array(3)
-                .fill(0)
-                .map((_, i) => (
-                  <div
-                    key={i}
-                    className="h-[380px] bg-gray-200 shimmer rounded-md"
-                  />
-                ))
+              .fill(0)
+              .map((_, i) => (
+                <div
+                  key={i}
+                  className="h-[380px] bg-gray-200 shimmer rounded-md"
+                />
+              ))
             : blogs.map((blog, i) => (
-                <BlogTile blog={blog} navigate={navigate} cardVariants={cardVariants} i={i} />
-              ))}
+              <BlogTile blog={blog} navigate={navigate} cardVariants={cardVariants} i={i} />
+            ))}
         </div>
       </div>
-      <Drawer>
-  <DrawerTrigger>Open</DrawerTrigger>
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-      <DrawerDescription>This action cannot be undone.</DrawerDescription>
-    </DrawerHeader>
-    <DrawerFooter>
-      <Button>Submit</Button>
-      <DrawerClose>
-        <Button variant="outline">Cancel</Button>
-      </DrawerClose>
-    </DrawerFooter>
-  </DrawerContent>
-</Drawer>
+      {/* <Drawer>
+        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+            <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button>Submit</Button>
+            <DrawerClose>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer> */}
 
     </motion.div>
   );
